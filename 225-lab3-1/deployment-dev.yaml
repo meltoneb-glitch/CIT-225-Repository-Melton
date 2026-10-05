@@ -6,14 +6,14 @@ spec:
   replicas: 2  # Number of NGINX pods to run
   selector:
     matchLabels:
-      app: meltoneb
+      app: nginx
   template:
     metadata:
       labels:
-        app: meltoneb
+        app: nginx
     spec:
       containers:
-      - name: meltoneb
+      - name: nginx
         image: meltoneb/lab3-1:latest     #<-------------------change this to match your MiamiID
         ports:
         - containerPort: 80  # Expose NGINX on port 80
@@ -25,7 +25,7 @@ spec:
     name: dev-service
   spec:
     selector:
-      app: meltoneb
+      app: nginx
     type: NodePort
     ports:
       - protocol: TCP
